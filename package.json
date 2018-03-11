@@ -6,7 +6,10 @@
   "author": "Mike Bailleul <bailleul.mike@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node ./src/server.js"
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/server.js"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
